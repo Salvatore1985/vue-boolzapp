@@ -35,16 +35,249 @@
         <!-- main -->
         <main id="root">
             <div class="container" id="wrapped">
+                <!--main User -->
                 <div class="row">
                     <div class="col-4">
-                        <div>ciao</div>
-                    </div>
-                    <div class="col-8">
-                        <div>ciao</div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between align-items-center">
+                                <div class="icnos-profile d-flex align-items-center">
+                                    <img class=" rounded-circle profile-pic" src="img/avatar_io.jpg" alt="Sofia">
+                                    <span id="user-name">Sofia</span>
+                                </div>
+                                <div class="icnos-profile d-flex align-items-center justify-content-end "
+                                    id="menu-user">
+                                    <a href="#"><i class="fa-solid fa-circle-notch"></i></a>
+                                    <a class="px-3" href="#"><i class="fa-solid fa-message"></i></a>
+                                    <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                                </div>
+                            </div>
+
+                            <!-- notifica -->
+                            <div class="col-12 d-flex justify-content-between align-items-center"
+                                id="notification-content">
+                                <div class=" d-flex align-items-center">
+                                    <div class="bg-light rounded-circle d-flex justify-content-center align-items-center"
+                                        id="notification">
+                                        <a href="#"><i class="fa-solid fa-bell-slash"></i></a>
+                                    </div>
+                                </div>
+                                <div class="px-1 flex-grow-1">
+                                    <span class="d-block" id="user-name">Ricevi notifica di nuovi messaggi</span>
+                                    <a href="#"><span class="last-access">Attiva notifica desktop</span></a>
+                                </div>
+                            </div>
+
+                            <!-- search friend -->
+                            <div class="col-12 d-flex align-items-center " id="search-message">
+                                <div class="rounded d-flex align-items-center" id="search-friend-content">
+                                    <a href="#"><i class="fa-solid fa-magnifying-glass px-3"></i></a>
+                                    <input class="px-3 py-1 flex-grow-1 border-0 rounded  bg-white " type="text"
+                                        placeholder="Cerca o inizia una nuova chat">
+                                </div>
+                            </div>
+                            <!-- friend -->
+                            <div class="col-12 d-flex justify-content-between  px-3 py-1" id="menu-friend">
+                                <div class="row" id="list-friend">
+                                    <div class="col-12 d-flex justify-content-between  px-3 py-1 user-friend">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_1.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Michele</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between  user-friend">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_2.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Fabio</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between  user-friend ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_3.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Samuele</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_4.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Alessandro B.</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_5.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Alessandro L.</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_6.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Claudia</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_7.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Federico</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_8.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Davide</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_8.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Davide</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_8.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Davide</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_8.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Davide</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <div class="icnos-profile d-flex align-items-center">
+                                            <img class=" rounded-circle profile-pic" src="img/avatar_8.jpg"
+                                                alt="Michele">
+                                        </div>
+                                        <div class="d-flex  flex-column flex-grow-1">
+                                            <span id="">Davide</span>
+                                            <span class="last-access">Ultimo messaggio inviato</span>
+                                        </div>
+                                        <div>
+                                            <span class="last-access">12:00</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
 
+                    <!-- user friend -->
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between align-items-center">
+                                <div class="icnos-profile d-flex align-items-center">
+                                    <img class=" rounded-circle profile-pic" src="img/avatar_1.jpg" alt="Michele">
+                                    <div class="d-flex align-items-start flex-column">
+                                        <span id="user-name">Michele</span>
+                                        <span class="last-access">Ultimo accesso oggi alle 12:00</span>
+                                    </div>
+                                </div>
+                                <div class="icnos-profile d-flex align-items-center justify-content-end "
+                                    id="menu-user">
+                                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                    <a class="px-3" href="#"><i class="fa-solid fa-paperclip"></i></a>
+                                    <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+
+
+                <!-- footer-message -->
+                <!--          <div class="col-8 d-flex justify-content-between align-items-center" id="footer-message">
+                        <a class="px-3" href="#"><i class="fa-solid fa-face-smile"></i></a>
+                        <input class="flex-grow-1 px-3 py-1 border-0 rounded" type="text"
+                            placeholder="Scrivi un messaggio">
+                        <a class="px-3" href="#"><i class="fa-solid fa-microphone"></i></a>
+                    </div> -->
+                <!--    <div class="icnos-profile d-flex align-items-center justify-content-end "
+                                    id="last-hour-message">
+                                    <span class="last-access">12:00</span>
+                                </div> -->
 
         </main>
 

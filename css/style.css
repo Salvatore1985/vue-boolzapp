@@ -3,25 +3,104 @@ header{
     background-color: #009688;
 }
 main{
-    height: calc(100vh - 100px);
+    height: calc(100vh - 50px);
     background-color: #D5DBD9;
 }
 
 
 #wrapped{
-    height: calc(100% - 100px);
+    height: calc(100vh - 50px);
     border: 1px solid blue;
     position: absolute;
-    top: 50px;
+    top: 25px;
     left: 50%;
     transform: translate(-50%);
 }
-.col-4{
-    border: 1px solid black;
-    height: 100%;
+
+
+.col-4 ,
+.col-8{
+    background-color: RGB(234,234,234);
+    height: 50px;
+    border: 1px solid red;
+
 }
 
-.col-8{
-    border: 1px solid red;
+ .profile-pic{
+    max-width: 50px;
+    
+}
+
+.icnos-profile{
+    height: 90%;
+    /* width: 50%; */
+}
+
+.icnos-profile img{
     height: 100%;
+   
+}
+
+#user-name{
+    font-size: 0.8rem;
+}
+
+div#menu-user > a,
+#search-friend-content> a{
+    color: RGB(177,177,177);
+
+}
+.last-access{
+    font-size:0.5rem ;
+}
+
+#notification{
+    min-width: 40px;
+    min-height: 40px;
+}
+
+div#notification-content{
+    background-color: RGB(142,218,252);
+    height: 60px;
+}
+
+#notification a {
+   color: RGB(142,218,252);
+}
+#search-message{
+    font-size: 0.5rem;
+    height: 30px;
+    background-color: RGB(250,250,250);
+ 
+}
+#search-friend-content{
+    height: 90%;
+    width: 100%;
+    background-color: white;
+}
+
+/* #list-friend{
+    overflow: hidden;
+} */
+#menu-friend{
+    background-color: white;
+  height: calc(100vh - 195px);
+    overflow: auto;
+    
+}
+.user-friend:hover{
+    background-color:RGB(233,235,235);
+}
+
+
+/* #footer-message >a {
+    color:RGB(99,118,147) ;
+} */
+
+
+div#chatter{
+height: calc(100vh - 150px);
+background-image: url('/img/mine.jpg');
+background-position: center;
+background-repeat: no-repeat;
 }
