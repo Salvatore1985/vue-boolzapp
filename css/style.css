@@ -34,7 +34,9 @@ main{
     max-width: 50px;
     
 }
-
+img {
+    height: 90%;
+}
 .icnos-profile{
     height: 90%;
 
@@ -126,9 +128,11 @@ color:gray;
 }
 .message-received{
     background-color: RGB(255,255,255);
-
+    justify-content: flex-end;
 }
 .message-sent{
     background-color: RGB(213,249,186);
     width:20rem;
+    justify-content: start;
 }
+/* :class="(textMessage.status==='sent')?'message-sent':'message-received'" */

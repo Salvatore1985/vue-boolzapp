@@ -41,8 +41,9 @@
                         <div class="row">
                             <div class="col-12 d-flex justify-content-between align-items-center">
                                 <div class="icnos-profile d-flex align-items-center">
-                                    <img class=" rounded-circle profile-pic" src="img/avatar_io.jpg" alt="Sofia">
-                                    <span id="user-name">Sofia</span>
+                                    <img class=" rounded-circle profile-pic" :src="`img/avatar${user.avatar}.jpg`"
+                                        :alt="user.name">
+                                    <span id="user-name">{{user.name}}</span>
                                 </div>
                                 <div class="icnos-profile d-flex align-items-center justify-content-end "
                                     id="menu-user">
@@ -78,13 +79,14 @@
                             <!-- friend -->
                             <div class="col-12 d-flex justify-content-between  px-3 py-1" id="menu-friend">
                                 <div class="row" id="list-friend">
-                                    <div class="col-12 d-flex justify-content-between  px-3 py-1 user-friend">
+                                    <div class="col-12 d-flex justify-content-between  px-3 py-1 user-friend"
+                                        v-for="(element,index) in  contacts">
                                         <div class="icnos-profile d-flex align-items-center">
-                                            <img class=" rounded-circle profile-pic" src="img/avatar_1.jpg"
-                                                alt="Michele">
+                                            <img class=" rounded-circle profile-pic"
+                                                :src="`img/avatar${element.avatar}.jpg`" :alt='element.name'>
                                         </div>
                                         <div class="d-flex  flex-column flex-grow-1">
-                                            <span id="">Michele</span>
+                                            <span id="">{{element.name}}</span>
                                             <span class="last-access">Ultimo messaggio inviato</span>
                                         </div>
                                         <div>
@@ -248,9 +250,10 @@
                         <div class="row">
                             <div class="col-12 d-flex justify-content-between align-items-center">
                                 <div class="icnos-profile d-flex align-items-center">
-                                    <img class=" rounded-circle profile-pic" src="img/avatar_1.jpg" alt="Michele">
+                                    <img class=" rounded-circle profile-pic"
+                                        :src="`img/avatar${contacts[0].avatar}.jpg`" :alt='contacts[0].name'>
                                     <div class="d-flex align-items-start flex-column">
-                                        <span id="user-name">Michele</span>
+                                        <span id="user-name">{{contacts[0].name}}</span>
                                         <span class="last-access">Ultimo accesso oggi alle 12:00</span>
                                     </div>
                                 </div>
@@ -263,14 +266,18 @@
                             </div>
                             <div class="col-12" id="chatter">
                                 <div class="row py-5 px-4">
-                                    <div class="col-12  g-3  px-5 d-flex justify-content-end ">
-                                        <div class=" my-message message-sent">
-                                            <span class="text-start">hai portato a spasso il cane?</span>
-                                            <span class="d-block text-end">15.30</span>
+                                    <div class="col-12  g-3  px-5 d-flex "
+                                        :class="(textMessage.status==='sent')?'justify-content-end ':''"
+                                        v-for="textMessage in contacts[0].messages">
+                                        <div class=" my-message  "
+                                            :class="(textMessage.status==='sent')?'message-sent':'message-received'">
+                                            <span class="text-start">{{textMessage.message}}</span>
+                                            <span class="d-block text-end">{{textMessage.date}}</span>
 
                                         </div>
                                     </div>
-                                    <div class="col-12  g-3  px-5 d-flex justify-content-end ">
+                                    <!-- da commentare  -->
+                                    <!--  <div class="col-12  g-3  px-5 d-flex justify-content-end ">
                                         <div class=" my-message message-sent">
                                             <span class="text-start">Ricordati di standere i panni</span>
                                             <span class="d-block text-end">15.30</span>
@@ -282,24 +289,24 @@
                                             <span class="text-start">Tutto fatto</span>
                                             <span class="d-block text-end">15.30</span>
 
-                                        </div>
-                                    </div>
-
-
+                                        </div> -->
                                 </div>
-                            </div>
-                            <!-- footer-message -->
-                            <div class="col-12 d-flex justify-content-between align-items-center" id="footer-message">
-                                <a class="px-3" href="#"><i class="fa-solid fa-face-smile"></i></a>
-                                <input class="flex-grow-1 px-3 py-1 border-0 rounded" type="text"
-                                    placeholder="Scrivi un messaggio">
-                                <a class="px-3" href="#"><i class="fa-solid fa-microphone"></i></a>
-                            </div>
 
 
+                            </div>
                         </div>
+                        <!-- footer-message -->
+                        <div class="col-12 d-flex justify-content-between align-items-center" id="footer-message">
+                            <a class="px-3" href="#"><i class="fa-solid fa-face-smile"></i></a>
+                            <input class="flex-grow-1 px-3 py-1 border-0 rounded" type="text"
+                                placeholder="Scrivi un messaggio">
+                            <a class="px-3" href="#"><i class="fa-solid fa-microphone"></i></a>
+                        </div>
+
+
                     </div>
                 </div>
+            </div>
 
 
 
