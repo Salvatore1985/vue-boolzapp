@@ -2,6 +2,8 @@ const root = new Vue(
     {
         el: '#root',
         data: {
+
+            selectedUser: 0,
             user:
             {
                 name: "Sofia",
@@ -174,7 +176,9 @@ const root = new Vue(
 
         },
         methods: {
-
+            setCurrentContent(index) {
+                this.selectedUser = index;
+            }
         }
     }
 )
