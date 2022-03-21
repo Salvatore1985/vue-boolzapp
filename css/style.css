@@ -8,12 +8,13 @@ header{
 main{
     height: calc(100vh - 50px);
     background-color: #D5DBD9;
+    
 }
 
 
 #wrapped{
     height: calc(100vh - 50px);
- 
+    background-color: RGB(243,238,234);
     position: absolute;
     top: 25px;
     left: 50%;
@@ -88,12 +89,13 @@ div#notification-content{
 #menu-friend{
     background-color: white;
   height: calc(100vh - 190px);
-    overflow: auto;
-    
+    overflow-y: scroll;
+   
 }
 .user-friend{
     height: 50px;
     width: 100%;
+    border-bottom:1px solid RGB(234,234,234);
 }
 .user-friend:hover{
     background-color:RGB(233,235,235);
@@ -128,11 +130,10 @@ color:gray;
 }
 .message-received{
     background-color: RGB(255,255,255);
-    justify-content: flex-end;
+
 }
 .message-sent{
     background-color: RGB(213,249,186);
     width:20rem;
-    justify-content: start;
+  
 }
-/* :class="(textMessage.status==='sent')?'message-sent':'message-received'" */

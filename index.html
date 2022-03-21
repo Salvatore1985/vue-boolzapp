@@ -269,11 +269,10 @@
                                     <div class="col-12  g-3  px-5 d-flex "
                                         :class="(textMessage.status==='sent')?'justify-content-end ':''"
                                         v-for="textMessage in contacts[0].messages">
-                                        <div class=" my-message  "
+                                        <div class="my-message"
                                             :class="(textMessage.status==='sent')?'message-sent':'message-received'">
                                             <span class="text-start">{{textMessage.message}}</span>
                                             <span class="d-block text-end">{{textMessage.date}}</span>
-
                                         </div>
                                     </div>
                                     <!-- da commentare  -->
