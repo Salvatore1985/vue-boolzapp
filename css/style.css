@@ -1,3 +1,6 @@
+body{
+    overflow: hidden;
+}
 header{
     height: 100px;
     background-color: #009688;
@@ -10,7 +13,7 @@ main{
 
 #wrapped{
     height: calc(100vh - 50px);
-    border: 1px solid blue;
+ 
     position: absolute;
     top: 25px;
     left: 50%;
@@ -22,7 +25,8 @@ main{
 .col-8{
     background-color: RGB(234,234,234);
     height: 50px;
-    border: 1px solid red;
+    border-left:1px solid RGB(214,214,214) ;
+  
 
 }
 
@@ -84,7 +88,7 @@ div#notification-content{
 } */
 #menu-friend{
     background-color: white;
-  height: calc(100vh - 195px);
+  height: calc(100vh - 190px);
     overflow: auto;
     
 }
@@ -92,15 +96,38 @@ div#notification-content{
     background-color:RGB(233,235,235);
 }
 
-
-/* #footer-message >a {
+#footer-message{
+    background-color: RGB(243,238,234);
+    height: 50px;
+}
+#footer-message >a {
     color:RGB(99,118,147) ;
-} */
+}
 
 
 div#chatter{
 height: calc(100vh - 150px);
-background-image: url('/img/mine.jpg');
-background-position: center;
-background-repeat: no-repeat;
+background-image: url('../img/mine.jpg');
+overflow-y: scroll;
+
+
+}
+.my-message span.d-block {
+font-size: 0.5rem;
+color:gray;
+}
+.message-sent,
+.message-received{
+    padding: .6rem;
+    border-radius: .5rem;
+    font-size: .8rem;
+    width:20rem;
+}
+.message-received{
+    background-color: RGB(255,255,255);
+
+}
+.message-sent{
+    background-color: RGB(213,249,186);
+    width:20rem;
 }
