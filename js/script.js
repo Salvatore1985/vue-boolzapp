@@ -206,6 +206,7 @@ const root = new Vue(
             getLastMessageUsers(index) {
                 const messages = this.contacts[index].messages;
                 const lastMessage = messages[messages.length - 1].date;
+
                 return lastMessage;
 
             },
@@ -215,21 +216,40 @@ const root = new Vue(
              * @returns 
              */
             sendMessage() {
-                /*    if (!this.newMessage || this.newMessage.trim() === "") return; */
+
                 if (!this.newMessage) return;
                 const messagePickedUp = {
                     date: dayjs().format('HH:mm'),
                     message: this.newMessage,
                     status: 'sent'
                 }
-                this.contacts[this.selectedUser].messages.push(messagePickedUp);
 
+                this.contacts[this.selectedUser].messages.push(messagePickedUp);
                 this.newMessage = "";
+
+
             },
+            userResponse() {
+                setTimeout(() => {
+                    const userResponse = {
+                        date: dayjs().format('HH:mm'),
+                        message: "ok",
+                        status: 'received'
+                    };
+                    this.contacts[this.selectedUser].messages.push(userResponse);
+                }, 1000);
+            }
+            /*      formatDateUser() {
+     
+     
+                     const formatDate = this.contacts[this.selectedUser].status.map((elementDate) => {
+                         elementDate.format('HH:mm');
+                         return formatDate;
+                     });
+                 }, */
         }
     }
 )
-
 
 
 
