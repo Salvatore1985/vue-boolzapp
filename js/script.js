@@ -176,10 +176,28 @@ const root = new Vue(
 
         },
         methods: {
+            /**
+             * assegna  l'index dell'utente alla variabile  
+             * @param {number} index 
+             */
             setCurrentContent(index) {
                 this.selectedUser = index;
-            }
+            },
+
+            /**
+             * Prelevo la data e l'ra dell'ultimo messagio dell'utente in base 
+             * alla variabile che preleva l'index dell'array 
+             * 
+             * @returns 
+             */
+            getLastMessageUser() {
+                const messages = this.contacts[this.selectedUser].messages;
+                const lastMessage = messages[messages.length - 1].date;
+                return lastMessage;
+
+            },
         }
     }
 )
 
+console.log(lastMessage);
