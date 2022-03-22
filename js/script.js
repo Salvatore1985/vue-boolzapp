@@ -196,8 +196,20 @@ const root = new Vue(
                 return lastMessage;
 
             },
+
+            /**
+          * Prelevo la data e l'ra dell'ultimo messagio degliutente in base 
+          * alla variabile che preleva l'index dell'array 
+          * 
+          * @returns 
+          */
+            getLastMessageUsers(index) {
+                const messages = this.contacts[index].messages;
+                const lastMessage = messages[messages.length - 1].date;
+                return lastMessage;
+
+            },
         }
     }
 )
 
-console.log(lastMessage);
