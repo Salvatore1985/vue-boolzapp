@@ -217,13 +217,14 @@ const root = new Vue(
              */
             sendMessage() {
                 if (!this.newMessage) return;
-                addMessage(newMessage, 'sent');
+                this.addMessage(this.newMessage, 'sent');
                 this.newMessage = "";
+                this.userResponse();
             },
 
             userResponse() {
                 setTimeout(() => {
-                    addMessage(newMessage, 'received');
+                    this.addMessage("ok !!", 'received');
                 }, 1000);
             },
 
@@ -232,9 +233,9 @@ const root = new Vue(
                     date: dayjs().format('HH:mm'),
                     message: text,
                     status: status
-                }
+                };
                 this.contacts[this.selectedUser].messages.push(messagePickedUp);
-            }
+            },
             /*      formatDateUser() {
      
      
