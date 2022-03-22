@@ -75,15 +75,18 @@
                                 <div class="rounded d-flex align-items-center" id="search-friend-content">
                                     <a href="#"><i class="fa-solid fa-magnifying-glass px-3"></i></a>
                                     <input class="px-3 py-1 flex-grow-1 border-0 rounded  bg-white " type="text"
-                                        placeholder="Cerca o inizia una nuova chat">
+                                        placeholder="Cerca o inizia una nuova chat" v-model.trim="filterFriends"
+                                        @keyup="filtersUsers">
                                 </div>
                             </div>
                             <!-- friend -->
                             <div class="col-12 d-flex justify-content-between  px-3 py-1" id="menu-friend">
                                 <div class="row" id="list-friend">
+                                    <!-- list friend -->
                                     <div @click="setCurrentContent(index)"
                                         class="col-12 d-flex justify-content-between  px-3 py-1 user-friend"
-                                        v-for="(element,index) in  contacts">
+                                        v-for="(element,index) in  contacts" v-if="element.visible">
+
                                         <div class="icnos-profile d-flex align-items-center">
                                             <img class=" rounded-circle profile-pic"
                                                 :src="`img/avatar${element.avatar}.jpg`" :alt='element.name'>

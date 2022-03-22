@@ -4,6 +4,8 @@ const root = new Vue(
         data: {
             newMessage: "",
             selectedUser: 0,
+
+            filterFriends: "",
             user:
             {
                 name: "Sofia",
@@ -245,6 +247,21 @@ const root = new Vue(
                 };
                 this.contacts[this.selectedUser].messages.push(messagePickedUp);
             },
+
+            filtersUsers() {
+                if (!this.filterFriends) return;
+                const filter = this.filterFriends.toLowerCase();
+
+                this.contacts.forEach(element => {
+                    const friendName = element.name.toLowerCase();
+                    if (friendName.includes(filter)) {
+                        element.visible = true;
+                    } else {
+                        element.visible = false;
+                    };
+                });
+
+            }
             /*      formatDateUser() {
      
      
