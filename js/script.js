@@ -222,12 +222,21 @@ const root = new Vue(
                 this.userResponse();
             },
 
+            /**
+             * Funzione di risposta con un setTimeout
+             * che risponde dopo un 1000ms
+             */
             userResponse() {
                 setTimeout(() => {
                     this.addMessage("ok !!", 'received');
                 }, 1000);
             },
 
+            /**
+             * Funzione di ottimizzazione per creare un oggeto
+             * @param {string} text 
+             * @param {string} status 
+             */
             addMessage(text, status) {
                 const messagePickedUp = {
                     date: dayjs().format('HH:mm'),
