@@ -2,7 +2,7 @@ const root = new Vue(
     {
         el: '#root',
         data: {
-
+            newMessage: "",
             selectedUser: 0,
             user:
             {
@@ -209,7 +209,27 @@ const root = new Vue(
                 return lastMessage;
 
             },
+
+            /**
+             * funzione che aggiunge un nuovo aggetto per il messaggio inviato
+             * @returns 
+             */
+            sendMessage() {
+                /*    if (!this.newMessage || this.newMessage.trim() === "") return; */
+                if (!this.newMessage) return;
+                const messagePickedUp = {
+                    date: dayjs().format('HH:mm'),
+                    message: this.newMessage,
+                    status: 'sent'
+                }
+                this.contacts[this.selectedUser].messages.push(messagePickedUp);
+
+                this.newMessage = "";
+            },
         }
     }
 )
+
+
+
 
