@@ -216,28 +216,24 @@ const root = new Vue(
              * @returns 
              */
             sendMessage() {
-
                 if (!this.newMessage) return;
-                const messagePickedUp = {
-                    date: dayjs().format('HH:mm'),
-                    message: this.newMessage,
-                    status: 'sent'
-                }
-
-                this.contacts[this.selectedUser].messages.push(messagePickedUp);
+                addMessage(newMessage, 'sent');
                 this.newMessage = "";
-
-
             },
+
             userResponse() {
                 setTimeout(() => {
-                    const userResponse = {
-                        date: dayjs().format('HH:mm'),
-                        message: "ok",
-                        status: 'received'
-                    };
-                    this.contacts[this.selectedUser].messages.push(userResponse);
+                    addMessage(newMessage, 'received');
                 }, 1000);
+            },
+
+            addMessage(text, status) {
+                const messagePickedUp = {
+                    date: dayjs().format('HH:mm'),
+                    message: text,
+                    status: status
+                }
+                this.contacts[this.selectedUser].messages.push(messagePickedUp);
             }
             /*      formatDateUser() {
      
