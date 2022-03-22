@@ -80,13 +80,12 @@
                                 </div>
                             </div>
                             <!-- friend -->
-                            <div class="col-12 d-flex justify-content-between  px-3 py-1" id="menu-friend">
+                            <div class="col-12  " id="menu-friend">
                                 <div class="row" id="list-friend">
                                     <!-- list friend -->
                                     <div @click="setCurrentContent(index)"
-                                        class="col-12 d-flex justify-content-between  px-3 py-1 user-friend"
+                                        class="col-12 d-flex justify-content-between py-1 align-items-center user-friend"
                                         v-for="(element,index) in  contacts" v-if="element.visible">
-
                                         <div class="icnos-profile d-flex align-items-center">
                                             <img class=" rounded-circle profile-pic"
                                                 :src="`img/avatar${element.avatar}.jpg`" :alt='element.name'>
@@ -275,7 +274,7 @@
                             <div class="col-12" id="chatter">
                                 <div class="row py-5 px-4">
                                     <div class="col-12  g-3  px-5 d-flex "
-                                        :class="(textMessage.status==='sent')?'justify-content-end ':''"
+                                        :class="(textMessage.status ==='sent')?'justify-content-end ':''"
                                         v-for="textMessage in contacts[selectedUser].messages">
                                         <div class="my-message"
                                             :class="(textMessage.status==='sent')?'message-sent':'message-received'">

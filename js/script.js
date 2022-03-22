@@ -247,7 +247,10 @@ const root = new Vue(
                 };
                 this.contacts[this.selectedUser].messages.push(messagePickedUp);
             },
-
+            /**
+             * Funzione che filtra inomi dell'utenti
+             * @returns 
+             */
             filtersUsers() {
                 if (!this.filterFriends) return;
                 const filter = this.filterFriends.toLowerCase();

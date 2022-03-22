@@ -73,7 +73,8 @@ div#notification-content{
 }
 #search-message{
     font-size: 0.5rem;
-    height: 30px;
+    height: 40px;
+    padding: .3rem;
     background-color: RGB(250,250,250);
  
 }
@@ -88,13 +89,13 @@ div#notification-content{
 }
 #menu-friend{
     background-color: white;
-  height: calc(100vh - 190px);
+  height: calc(100vh - 200px);
     overflow-y: scroll;
    
 }
 .user-friend{
-    height: 50px;
-    width: 100%;
+ /*    height: 50px;
+    width: 100%; */
     border-bottom:1px solid RGB(234,234,234);
 }
 .user-friend:hover{
