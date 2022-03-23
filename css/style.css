@@ -118,6 +118,11 @@ overflow-y: scroll;
 
 
 }
+
+div.my-message#prova{
+    position: relative;
+}
+
 .my-message span.d-block {
 font-size: 0.5rem;
 color:gray;
@@ -138,3 +143,46 @@ color:gray;
     width:20rem;
   
 }
+.option-message{
+    display: none;
+    min-height: 70px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-bottom: 4px solid lightgray ;
+    border-radius: .5rem;
+    z-index: 2;
+    position: absolute;
+    bottom:-60px;
+    right: 0;
+}
+.option-message.active{
+    display: block;
+
+}
+ul li{
+ list-style-type: none;
+ cursor: pointer;
+}
+
+.option-message ul li:hover{
+    background-color: rgb(229, 226, 226);
+    border-radius: .5rem;
+
+   }
+   .icons-option{
+       position: absolute;
+       top:10%;
+       left: 92%;
+       z-index: 1;
+        color: rgb(194, 194, 194);
+    }
+
+    .icons-option:hover{
+     color: gray;
+     
+     }
+     
+   /*   .icons-option:hover + .option-message {
+        display: block;
+        
+        } */

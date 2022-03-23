@@ -2,6 +2,7 @@ const root = new Vue(
     {
         el: '#root',
         data: {
+            optionActive: false,
             newMessage: "",
             selectedUser: 0,
 
@@ -10,8 +11,13 @@ const root = new Vue(
             {
                 name: "Sofia",
                 avatar: "_io"
-            }
-            ,
+            },
+
+            optionMessage: {
+                info: "Message info",
+                delete: "Delete message"
+            },
+
             contacts: [
                 {
                     name: 'Michele',
@@ -180,7 +186,7 @@ const root = new Vue(
         methods: {
             /**
              * assegna  l'index dell'utente alla variabile  
-             * @param {number} index 
+             * @param {number} //index 
              */
             setCurrentContent(index) {
                 this.selectedUser = index;
@@ -222,6 +228,8 @@ const root = new Vue(
                 this.addMessage(this.newMessage, 'sent');
                 this.newMessage = "";
                 this.userResponse();
+                const objDiv = document.getElementById("chatter");
+                objDiv.scrollTop = objDiv.scrollHeight;
             },
 
             /**
@@ -248,11 +256,23 @@ const root = new Vue(
                 this.contacts[this.selectedUser].messages.push(messagePickedUp);
             },
             /**
+             * Funzione di formattazione data in ora : minuti
+             * @param {*} myDate 
+             * @returns 
+             */
+            formatDate(myDate) {
+                const newDate = myDate;
+                const newDateFormat = dayjs(newDate).format('HH:mm');
+                return newDateFormat;
+            },
+
+
+            /**
              * Funzione che filtra inomi dell'utenti
              * @returns 
              */
             filtersUsers() {
-                if (!this.filterFriends) return;
+
                 const filter = this.filterFriends.toLowerCase();
 
                 this.contacts.forEach(element => {
@@ -264,15 +284,18 @@ const root = new Vue(
                     };
                 });
 
-            }
-            /*      formatDateUser() {
-     
-     
-                     const formatDate = this.contacts[this.selectedUser].status.map((elementDate) => {
-                         elementDate.format('HH:mm');
-                         return formatDate;
-                     });
-                 }, */
+            },
+
+
+            isActiveOption() {
+                this.optionActive = !this.optionActive;
+                console.log(this.optionActive);
+            },
+            /*             addOptionDeleteMessage(myClass, active) {
+                            document.getElementsByClassName(myClass).classList.add(active);
+                            console.log(elementClass);
+            
+                        }, */
         }
     }
 )
