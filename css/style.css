@@ -119,7 +119,7 @@ overflow-y: scroll;
 
 }
 
-div.my-message#prova{
+div.my-message#position-icons{
     position: relative;
 }
 
@@ -155,7 +155,7 @@ color:gray;
     bottom:-60px;
     right: 0;
 }
-.option-message.active{
+div.active .option-message{
     display: block;
 
 }

@@ -2,10 +2,10 @@ const root = new Vue(
     {
         el: '#root',
         data: {
-            optionActive: false,
+
             newMessage: "",
             selectedUser: 0,
-
+            selectedIndexMessage: 0,
             filterFriends: "",
             user:
             {
@@ -184,16 +184,37 @@ const root = new Vue(
 
         },
         methods: {
+
+            getIndexMessage(index) {
+                const messages = this.contacts[this.selectedUser].messages;
+                const indexMessage = messages[index].message;
+                console.log("cerco di stampare i messaggio", indexMessage);
+                this.selectedIndexMessage = index;
+                return indexMessage;
+
+            },
+            removeMessage(index) {
+
+                this.contacts[this.selectedUser].messages.splice(index, 1);
+
+                /*  const messages = this.contacts[this.selectedUser].messages;
+                 const indexMessageDelete = messages[index].message;
+                 indexMessageDelete.splice(index, 1);
+                 this.selectedIndexMessage = index;
+                 console.log("elimino il messaggio", indexMessageDelete);
+                 return indexMessageDelete; */
+
+            },
             /**
              * assegna  l'index dell'utente alla variabile  
-             * @param {number} //index 
+             * @param {number} index 
              */
             setCurrentContent(index) {
                 this.selectedUser = index;
             },
 
             /**
-             * Prelevo la data e l'ra dell'ultimo messagio dell'utente in base 
+             * Prelevo la data e l'ora dell'ultimo messagio dell'utente in base 
              * alla variabile che preleva l'index dell'array 
              * 
              * @returns 
@@ -221,17 +242,22 @@ const root = new Vue(
 
             /**
              * funzione che aggiunge un nuovo aggetto per il messaggio inviato
+             * @param {string} message 
              * @returns 
              */
-            sendMessage() {
-                if (!this.newMessage) return;
+            sendMessage(message) {
+                if (!message) return;
                 this.addMessage(this.newMessage, 'sent');
-                this.newMessage = "";
+                this.clearNewMEssage()
                 this.userResponse();
                 const objDiv = document.getElementById("chatter");
+                //
                 objDiv.scrollTop = objDiv.scrollHeight;
             },
 
+            clearNewMEssage() {
+                this.newMessage = "";
+            },
             /**
              * Funzione di risposta con un setTimeout
              * che risponde dopo un 1000ms
@@ -261,9 +287,14 @@ const root = new Vue(
              * @returns 
              */
             formatDate(myDate) {
-                const newDate = myDate;
-                const newDateFormat = dayjs(newDate).format('HH:mm');
+                /* "10/01/2020 15:50:00'" */
+                const newDate = dayjs(myDate, "DD/MM/YYYY HH:mm:ss");
+                const newDateFormat = newDate.format('HH:mm');
+                // console.warn(myDate);
+                // console.log(newDate);
+                // console.log(newDateFormat);
                 return newDateFormat;
+
             },
 
 
@@ -272,9 +303,7 @@ const root = new Vue(
              * @returns 
              */
             filtersUsers() {
-
                 const filter = this.filterFriends.toLowerCase();
-
                 this.contacts.forEach(element => {
                     const friendName = element.name.toLowerCase();
                     if (friendName.includes(filter)) {
@@ -287,18 +316,43 @@ const root = new Vue(
             },
 
 
-            isActiveOption() {
-                this.optionActive = !this.optionActive;
-                console.log(this.optionActive);
-            },
-            /*             addOptionDeleteMessage(myClass, active) {
-                            document.getElementsByClassName(myClass).classList.add(active);
-                            console.log(elementClass);
-            
-                        }, */
+            /*     isActiveOption() {
+                    this.contacts[0].messages[0].optionActive = false;
+                    console.warn(this.contacts[0].messages[0].optionActive = false);
+                },
+     */
         }
     }
 )
+/* const messages = [
+    {
+        date: '10/01/2020 15:30:55',
+        message: 'Ciao, andiamo a mangiare la pizza stasera?',
+        status: 'received'
+    },
+    {
+        date: '10/01/2020 15:50:00',
+        message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+        status: 'sent'
+    },
+    {
+        date: '10/01/2020 15:51:00',
+        message: 'OK!!',
+        status: 'received'
+    }
+];
 
+messages[2].ciao = "ciao";
+console.table(messages); */
 
+/* const isActiveOption = messages.map((element) => {
+    const newObj = contacts;
+    const optionActive = false;
+}); */
 
+/* function isActiveOption() {
+    const newObj = contacts;
+    const optionActive = false;
+    const prova = this.contacts[this.selectedUser].messages.push(optionActive);
+    console.log(prova);
+}; */

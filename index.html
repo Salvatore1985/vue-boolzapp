@@ -23,7 +23,9 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- dayjs. -->
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.0/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/plugin/customParseFormat.js"></script>
+
     <title>Boolzapp</title>
 </head>
 
@@ -276,22 +278,22 @@
                                 <div class="row py-5 px-4">
                                     <div class="col-12  g-3  px-5 d-flex "
                                         :class="(textMessage.status ==='sent') ?'justify-content-end ':''"
-                                        v-for="textMessage in contacts[selectedUser].messages">
+                                        v-for="(textMessage, messageIndex) in contacts[selectedUser].messages">
                                         <div class="my-message"
                                             :class="(textMessage.status==='sent') ?'message-sent':'message-received'"
-                                            id="prova">
+                                            id="position-icons">
                                             <span class="text-start">{{textMessage.message}}</span>
                                             <span class="d-block text-end">{{formatDate(textMessage.date)}}</span>
 
                                             <!-- option-message-->
-                                            <div class="">
-                                                <span class="icons-option" @click="isActiveOption()">
+                                            <div class="active" @click="getIndexMessage(messageIndex)">
+                                                <span class="icons-option">
                                                     <i class="fa-solid fa-angle-down"></i>
                                                 </span>
-                                                <ul class="p-2 option-message"
-                                                    :class=" (optionActive == true ) ? 'active' :'' ">
+                                                <ul class="p-2 option-message">
                                                     <li class="p-1">{{optionMessage.info}}</li>
-                                                    <li class="p-1">{{optionMessage.delete}}</li>
+                                                    <li class="p-1" @click="removeMessage(messageIndex)">
+                                                        {{optionMessage.delete}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -320,7 +322,7 @@
                             <a class="px-3" href="#"><i class="fa-solid fa-face-smile"></i></a>
                             <input class="flex-grow-1 px-3 py-1 border-0 rounded" type="text"
                                 placeholder="Scrivi un messaggio" v-model.trim="newMessage"
-                                @keyup.enter="sendMessage()">
+                                @keyup.enter="sendMessage(newMessage)">
                             <a class="px-3" href="#"><i class="fa-solid fa-microphone"></i></a>
                         </div>
 
