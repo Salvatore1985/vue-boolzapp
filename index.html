@@ -97,7 +97,8 @@
                                             <span class="last-access">Ultimo messaggio inviato</span>
                                         </div>
                                         <div>
-                                            <span class="last-access">{{formatDate(getLastMessageUsers(index))}}</span>
+                                            <span
+                                                class="last-access">{{formatDate(getLastMessageUsers(index,selectedUser))}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -140,13 +141,14 @@
 
                                             <!-- option-message-->
                                             <div :class="(selectedIndexMessage === messageIndex && isActive) ? 'active' : '' "
-                                                @click="isActiveOption(getIndexMessage(messageIndex))">
+                                                @click="isActiveOption(getIndexMessage(messageIndex,selectedUser))">
                                                 <span class="icons-option">
                                                     <i class="fa-solid fa-angle-down"></i>
                                                 </span>
                                                 <ul class="p-2 option-message">
                                                     <li class="p-1">{{optionMessage.info}}</li>
-                                                    <li class="p-1" @click.stop="removeMessage(messageIndex)">
+                                                    <li class="p-1"
+                                                        @click.stop="removeMessage(messageIndex,selectedUser)">
                                                         {{optionMessage.delete}}</li>
                                                 </ul>
                                             </div>

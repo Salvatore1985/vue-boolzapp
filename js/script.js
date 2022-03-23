@@ -12,12 +12,10 @@ const root = new Vue(
                 name: "Sofia",
                 avatar: "_io"
             },
-
             optionMessage: {
                 info: "Message info",
                 delete: "Delete message"
             },
-
             contacts: [
                 {
                     name: 'Michele',
@@ -181,21 +179,20 @@ const root = new Vue(
                     ],
                 }
             ],
-
         },
         methods: {
 
-            getIndexMessage(index) {
-                const messages = this.contacts[this.selectedUser].messages;
+            getIndexMessage(index, selectedUser) {
+                const messages = this.contacts[selectedUser].messages;
                 const indexMessage = messages[index].message;
                 /* console.log("cerco di stampare i messaggio", indexMessage); */
                 this.selectedIndexMessage = index;
                 return indexMessage;
 
             },
-            removeMessage(index) {
+            removeMessage(index, selectedUser) {
 
-                this.contacts[this.selectedUser].messages.splice(index, 1);
+                this.contacts[selectedUser].messages.splice(index, 1);
 
 
             },
@@ -203,8 +200,8 @@ const root = new Vue(
              * assegna  l'index dell'utente alla variabile  
              * @param {number} index 
              */
-            setCurrentContent(index) {
-                this.selectedUser = index;
+            setCurrentContent(index, selectedUser) {
+                selectedUser = index;
             },
 
             /**
@@ -213,8 +210,8 @@ const root = new Vue(
              * 
              * @returns 
              */
-            getLastMessageUser() {
-                const messages = this.contacts[this.selectedUser].messages;
+            getLastMessageUser(selectedUser) {
+                const messages = this.contacts[selectedUser].messages;
                 const lastMessage = messages[messages.length - 1].date;
                 return lastMessage;
 
@@ -232,7 +229,7 @@ const root = new Vue(
                     const lastMessage = messages[messages.length - 1].date;
                     return lastMessage;
                 } else {
-                    console.warn("li puoi eleiminare funziona");
+                    /*  console.warn("li puoi eleiminare funziona"); */
                 }
 
             },
@@ -269,13 +266,13 @@ const root = new Vue(
              * @param {string} text 
              * @param {string} status 
              */
-            addMessage(text, status) {
+            addMessage(text, status, selectedUser) {
                 const messagePickedUp = {
                     date: dayjs().format('HH:mm'),
                     message: text,
                     status: status
                 };
-                this.contacts[this.selectedUser].messages.push(messagePickedUp);
+                this.contacts[selectedUser].messages.push(messagePickedUp);
             },
             /**
              * Funzione di formattazione data in ora : minuti
@@ -320,35 +317,3 @@ const root = new Vue(
         }
     }
 )
-/* const messages = [
-    {
-        date: '10/01/2020 15:30:55',
-        message: 'Ciao, andiamo a mangiare la pizza stasera?',
-        status: 'received'
-    },
-    {
-        date: '10/01/2020 15:50:00',
-        message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
-        status: 'sent'
-    },
-    {
-        date: '10/01/2020 15:51:00',
-        message: 'OK!!',
-        status: 'received'
-    }
-];
-
-messages[2].ciao = "ciao";
-console.table(messages); */
-
-/* const isActiveOption = messages.map((element) => {
-    const newObj = contacts;
-    const optionActive = false;
-}); */
-
-/* function isActiveOption() {
-    const newObj = contacts;
-    const optionActive = false;
-    const prova = this.contacts[this.selectedUser].messages.push(optionActive);
-    console.log(prova);
-}; */
