@@ -2,7 +2,7 @@ const root = new Vue(
     {
         el: '#root',
         data: {
-
+            isActive: true,
             newMessage: "",
             selectedUser: 0,
             selectedIndexMessage: null,
@@ -226,27 +226,14 @@ const root = new Vue(
           * 
           * @returns 
           */
-            /*      getLastMessageUsers(index) {
-                     const messages = this.contacts[index].messages;
-                     const lastMessage = messages[messages.length - 1].date;
-                     return lastMessage;
-                     console.log("il valore é", lastMessage);
-                  
-     
-     
-                 }, */
             getLastMessageUsers(index) {
-
                 const messages = this.contacts[index].messages;
                 if (this.contacts[index].messages[messages.length] !== undefined) {
                     const lastMessage = messages[messages.length - 1].date;
-                    console.warn("Non funziona");
                     return lastMessage;
-
                 } else {
-                    console.warn("funziona");
+                    console.warn("li puoi eleiminare funziona");
                 }
-
 
             },
             /**
@@ -325,11 +312,11 @@ const root = new Vue(
             },
 
 
-            /*     isActiveOption() {
-                    this.contacts[0].messages[0].optionActive = false;
-                    console.warn(this.contacts[0].messages[0].optionActive = false);
-                },
-     */
+            isActiveOption() {
+                this.isActive = !this.isActive;
+                console.log(this.isActive);
+            },
+
         }
     }
 )
