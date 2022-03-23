@@ -286,13 +286,14 @@
                                             <span class="d-block text-end">{{formatDate(textMessage.date)}}</span>
 
                                             <!-- option-message-->
-                                            <div class="active" @click="getIndexMessage(messageIndex)">
+                                            <div :class="(selectedIndexMessage === messageIndex) ?'active' : '' "
+                                                @click="getIndexMessage(messageIndex)">
                                                 <span class="icons-option">
                                                     <i class="fa-solid fa-angle-down"></i>
                                                 </span>
                                                 <ul class="p-2 option-message">
                                                     <li class="p-1">{{optionMessage.info}}</li>
-                                                    <li class="p-1" @click="removeMessage(messageIndex)">
+                                                    <li class="p-1" @click.stop="removeMessage(messageIndex)">
                                                         {{optionMessage.delete}}</li>
                                                 </ul>
                                             </div>

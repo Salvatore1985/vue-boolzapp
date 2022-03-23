@@ -5,7 +5,7 @@ const root = new Vue(
 
             newMessage: "",
             selectedUser: 0,
-            selectedIndexMessage: 0,
+            selectedIndexMessage: null,
             filterFriends: "",
             user:
             {
@@ -188,7 +188,7 @@ const root = new Vue(
             getIndexMessage(index) {
                 const messages = this.contacts[this.selectedUser].messages;
                 const indexMessage = messages[index].message;
-                console.log("cerco di stampare i messaggio", indexMessage);
+                /* console.log("cerco di stampare i messaggio", indexMessage); */
                 this.selectedIndexMessage = index;
                 return indexMessage;
 
@@ -197,12 +197,6 @@ const root = new Vue(
 
                 this.contacts[this.selectedUser].messages.splice(index, 1);
 
-                /*  const messages = this.contacts[this.selectedUser].messages;
-                 const indexMessageDelete = messages[index].message;
-                 indexMessageDelete.splice(index, 1);
-                 this.selectedIndexMessage = index;
-                 console.log("elimino il messaggio", indexMessageDelete);
-                 return indexMessageDelete; */
 
             },
             /**
@@ -232,14 +226,29 @@ const root = new Vue(
           * 
           * @returns 
           */
+            /*      getLastMessageUsers(index) {
+                     const messages = this.contacts[index].messages;
+                     const lastMessage = messages[messages.length - 1].date;
+                     return lastMessage;
+                     console.log("il valore é", lastMessage);
+                  
+     
+     
+                 }, */
             getLastMessageUsers(index) {
-                const messages = this.contacts[index].messages;
-                const lastMessage = messages[messages.length - 1].date;
 
-                return lastMessage;
+                const messages = this.contacts[index].messages;
+                if (this.contacts[index].messages[messages.length] !== undefined) {
+                    const lastMessage = messages[messages.length - 1].date;
+                    console.warn("Non funziona");
+                    return lastMessage;
+
+                } else {
+                    console.warn("funziona");
+                }
+
 
             },
-
             /**
              * funzione che aggiunge un nuovo aggetto per il messaggio inviato
              * @param {string} message 
