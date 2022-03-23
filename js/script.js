@@ -12,10 +12,12 @@ const root = new Vue(
                 name: "Sofia",
                 avatar: "_io"
             },
+
             optionMessage: {
                 info: "Message info",
                 delete: "Delete message"
             },
+
             contacts: [
                 {
                     name: 'Michele',
@@ -179,20 +181,21 @@ const root = new Vue(
                     ],
                 }
             ],
+
         },
         methods: {
 
-            getIndexMessage(index, selectedUser) {
-                const messages = this.contacts[selectedUser].messages;
+            getIndexMessage(index) {
+                const messages = this.contacts[this.selectedUser].messages;
                 const indexMessage = messages[index].message;
                 /* console.log("cerco di stampare i messaggio", indexMessage); */
                 this.selectedIndexMessage = index;
                 return indexMessage;
 
             },
-            removeMessage(index, selectedUser) {
+            removeMessage(index) {
 
-                this.contacts[selectedUser].messages.splice(index, 1);
+                this.contacts[this.selectedUser].messages.splice(index, 1);
 
 
             },
@@ -200,8 +203,8 @@ const root = new Vue(
              * assegna  l'index dell'utente alla variabile  
              * @param {number} index 
              */
-            setCurrentContent(index, selectedUser) {
-                selectedUser = index;
+            setCurrentContent(index) {
+                this.selectedUser = index;
             },
 
             /**
@@ -210,8 +213,8 @@ const root = new Vue(
              * 
              * @returns 
              */
-            getLastMessageUser(selectedUser) {
-                const messages = this.contacts[selectedUser].messages;
+            getLastMessageUser() {
+                const messages = this.contacts[this.selectedUser].messages;
                 const lastMessage = messages[messages.length - 1].date;
                 return lastMessage;
 
@@ -266,13 +269,13 @@ const root = new Vue(
              * @param {string} text 
              * @param {string} status 
              */
-            addMessage(text, status, selectedUser) {
+            addMessage(text, status) {
                 const messagePickedUp = {
                     date: dayjs().format('HH:mm'),
                     message: text,
                     status: status
                 };
-                this.contacts[selectedUser].messages.push(messagePickedUp);
+                this.contacts[this.selectedUser].messages.push(messagePickedUp);
             },
             /**
              * Funzione di formattazione data in ora : minuti
